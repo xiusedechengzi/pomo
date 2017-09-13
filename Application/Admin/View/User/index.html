@@ -28,8 +28,10 @@
         <tr>
 		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
 		<th class="">UID</th>
+		<th class="">账户</th>
 		<th class="">昵称</th>
-		<th class="">积分</th>
+		<th class="">电话</th>
+		<th class="">商家码</th>
 		<th class="">登录次数</th>
 		<th class="">最后登录时间</th>
 		<th class="">最后登录IP</th>
@@ -43,8 +45,10 @@
 		<tr>
             <td><input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /></td>
 			<td>{$vo.uid} </td>
+			<td>{$vo.anumber} </td>
 			<td>{$vo.nickname}</td>
-			<td>{$vo.score}</td>
+			<td>{$vo.mobile}</td>
+			<td>{$vo.store_code}</td>
 			<td>{$vo.login}</td>
 			<td><span>{$vo.last_login_time|time_format}</span></td>
 			<td><span>{:long2ip($vo['last_login_ip'])}</span></td>

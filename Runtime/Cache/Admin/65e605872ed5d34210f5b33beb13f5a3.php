@@ -112,8 +112,10 @@
         <tr>
 		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
 		<th class="">UID</th>
+		<th class="">账户</th>
 		<th class="">昵称</th>
-		<th class="">积分</th>
+		<th class="">电话</th>
+		<th class="">商家码</th>
 		<th class="">登录次数</th>
 		<th class="">最后登录时间</th>
 		<th class="">最后登录IP</th>
@@ -125,8 +127,10 @@
 		<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
             <td><input class="ids" type="checkbox" name="id[]" value="<?php echo ($vo["uid"]); ?>" /></td>
 			<td><?php echo ($vo["uid"]); ?> </td>
+			<td><?php echo ($vo["anumber"]); ?> </td>
 			<td><?php echo ($vo["nickname"]); ?></td>
-			<td><?php echo ($vo["score"]); ?></td>
+			<td><?php echo ($vo["mobile"]); ?></td>
+			<td><?php echo ($vo["store_code"]); ?></td>
 			<td><?php echo ($vo["login"]); ?></td>
 			<td><span><?php echo (time_format($vo["last_login_time"])); ?></span></td>
 			<td><span><?php echo long2ip($vo['last_login_ip']);?></span></td>

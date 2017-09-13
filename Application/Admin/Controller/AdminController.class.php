@@ -426,6 +426,7 @@ class AdminController extends Controller {
         }
         $options      =   array_merge( (array)$OPT->getValue($model), $options );
         $total        =   $model->where($options['where'])->count();
+        
 
         if( isset($REQUEST['r']) ){
             $listRows = (int)$REQUEST['r'];

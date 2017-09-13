@@ -23,6 +23,33 @@ class UserController extends AdminController {
     public function index(){
         $nickname       =   I('nickname');
         $map['status']  =   array('egt',0);
+        // var_dump($map);
+        // die();
+        if(is_numeric($nickname)){
+            $map['uid|nickname']=   array(intval($nickname),array('like','%'.$nickname.'%'),'_multi'=>true);
+        }else{
+            $map['nickname']    =   array('like', '%'.(string)$nickname.'%');
+        }
+        // var_dump($map);
+        // die();
+
+        $list   = $this->lists('Member', $map);
+
+        // var_dump($list);
+        int_to_string($list);
+        $this->assign('_list', $list);
+        $this->meta_title = '用户信息';
+        $this->display();
+    }
+
+
+    /**
+     * 用户管理首页1
+     * @author 麦当苗儿 <zuojiazi@vip.qq.com>
+     */
+    public function index1(){
+        $nickname       =   I('nickname');
+        $map['status']  =   array('egt',0);
         if(is_numeric($nickname)){
             $map['uid|nickname']=   array(intval($nickname),array('like','%'.$nickname.'%'),'_multi'=>true);
         }else{
@@ -30,11 +57,14 @@ class UserController extends AdminController {
         }
 
         $list   = $this->lists('Member', $map);
+
+        var_dump($list);
         int_to_string($list);
         $this->assign('_list', $list);
         $this->meta_title = '用户信息';
         $this->display();
     }
+
 
     /**
      * 修改昵称初始化
@@ -200,8 +230,12 @@ class UserController extends AdminController {
         }
     }
 
-    public function add($username = '', $password = '', $repassword = '', $email = ''){
+    public function add($username = '', $password = '', $repassword = '', $email = '',$mobile = '',$store_code = '',$nickname = ''){
+        // var_dump($_POST);
+        // die();
         if(IS_POST){
+            // var_dump($username);
+            // die();
             /* 检测密码 */
             if($password != $repassword){
                 $this->error('密码和重复密码不一致！');
@@ -209,9 +243,9 @@ class UserController extends AdminController {
 
             /* 调用注册接口注册用户 */
             $User   =   new UserApi;
-            $uid    =   $User->register($username, $password, $email);
+            $uid    =   $User->register($username, $nickname, $password, $email, $mobile, $store_code);
             if(0 < $uid){ //注册成功
-                $user = array('uid' => $uid, 'nickname' => $username, 'status' => 1);
+                $user = array('uid' => $uid, 'nickname' => $nickname, 'status' => 1, 'anumber' => $username, 'store_code' => $store_code,'mobile' => $mobile);
                 if(!M('Member')->add($user)){
                     $this->error('用户添加失败！');
                 } else {

@@ -96,6 +96,24 @@
             </div>
         </div>
         <div class="form-item">
+            <label class="item-label">昵称<span class="check-tips">（昵称）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="nickname" value="">
+            </div>
+        </div>
+         <div class="form-item">
+            <label class="item-label">电话<span class="check-tips">（商家联系电话）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="mobile" value="">
+            </div>
+        </div>
+         <div class="form-item">
+            <label class="item-label">商家码<span class="check-tips">（商家唯一码）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_code" value="">
+            </div>
+        </div>
+        <div class="form-item">
             <label class="item-label">密码<span class="check-tips">（用户密码不能少于6位）</span></label>
             <div class="controls">
                 <input type="password" class="text input-large" name="password" value="">
@@ -107,6 +125,7 @@
                 <input type="password" class="text input-large" name="repassword" value="">
             </div>
         </div>
+
         <div class="form-item">
             <label class="item-label">邮箱<span class="check-tips">（用户邮箱，用于找回密码等安全操作）</span></label>
             <div class="controls">
