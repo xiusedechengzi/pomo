@@ -16,6 +16,11 @@
     <script type="text/javascript" src="/onethink/Public/Admin/js/jquery.mousewheel.js"></script>
     <!--<![endif]-->
     
+    <!--图片上传的js-->
+    <script src="/onethink/Public/static/upimg/jquery.ui.widget.js"></script>
+    <script src="/onethink/Public/static/upimg/jquery.iframe-transport.js"></script>
+    <script src="/onethink/Public/static/upimg/jquery.fileupload.js"></script>
+
 </head>
 <body>
     <!-- 头部 -->
@@ -85,58 +90,111 @@
             
 
             
-    <div class="main-title">
-        <h2>新增用户</h2>
-    </div>
-    <form action="<?php echo U();?>" method="post" class="form-horizontal">
+	<div class="main-title">
+		<h2>
+			<?php echo ($list['id']?'编辑':'新增'); ?>签约
+		</h2>
+	</div>
+	<form action="<?php echo U();?>" method="post" class="form-horizontal">
+		<div class="form-item">
+			<label class="item-label">店铺名称：</label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="name" value="<?php echo ((isset($list["name"]) && ($list["name"] !== ""))?($list["name"]):''); ?>">
+			</div>
+		</div>
         <div class="form-item">
-            <label class="item-label">用户名<span class="check-tips">（用户名会作为默认的昵称）</span></label>
+            <label class="item-label">店铺id：</label>
             <div class="controls">
-                <input type="text" class="text input-large" name="username" value="">
-            </div>
-        </div>
-        <div class="form-item">
-            <label class="item-label">昵称<span class="check-tips">（昵称）</span></label>
-            <div class="controls">
-                <input type="text" class="text input-large" name="nickname" value="">
-            </div>
-        </div>
-         <div class="form-item">
-            <label class="item-label">电话<span class="check-tips">（商家联系电话）</span></label>
-            <div class="controls">
-                <input type="text" class="text input-large" name="mobile" value="">
-            </div>
-        </div>
-         <div class="form-item">
-            <label class="item-label">商家码<span class="check-tips">（商家唯一码）</span></label>
-            <div class="controls">
-                <input type="text" class="text input-large" name="store_code" value="">
+                <input type="text" class="text input-large" name="store_code" value="<?php echo ((isset($list["store_code"]) && ($list["store_code"] !== ""))?($list["store_code"]):''); ?>">
             </div>
         </div>
         <div class="form-item">
-            <label class="item-label">密码<span class="check-tips">（用户密码不能少于6位）</span></label>
+            <label class="item-label">合同生效日期：</label>
             <div class="controls">
-                <input type="password" class="text input-large" name="password" value="">
+                <input type="text" class="text input-large" name="store_address" value="<?php echo ((isset($list["store_address"]) && ($list["store_address"] !== ""))?($list["store_address"]):''); ?>">
             </div>
         </div>
         <div class="form-item">
-            <label class="item-label">确认密码</label>
+            <label class="item-label">合同终止日期：</label>
             <div class="controls">
-                <input type="password" class="text input-large" name="repassword" value="">
-            </div>
-        </div>
-
-        <div class="form-item">
-            <label class="item-label">邮箱<span class="check-tips">（用户邮箱，用于找回密码等安全操作）</span></label>
-            <div class="controls">
-                <input type="text" class="text input-large" name="email" value="">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
             </div>
         </div>
         <div class="form-item">
-            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
-            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+            <label class="item-label">费用结算起始日期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
         </div>
-    </form>
+        <div class="form-item">
+            <label class="item-label">扣率</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">结算周期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">结算银行</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">银行账号</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">保证金</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否缴纳保证金</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">发票抬头</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">添加日期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">添加人员id</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否失效</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="<?php echo ((isset($list["phone"]) && ($list["phone"] !== ""))?($list["phone"]):''); ?>">
+            </div>
+        </div>
+        
+       
+       
+        <div class="form-item">
+			<input type="hidden" name="id" value="<?php echo ((isset($list["id"]) && ($list["id"] !== ""))?($list["id"]):''); ?>">
+			<button class="btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
 
         </div>
         <div class="cont-ft">
@@ -231,10 +289,46 @@
         }();
     </script>
     
-    <script type="text/javascript">
-        //导航高亮
-        highlight_subnav('<?php echo U('User/index');?>');
-    </script>
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+	highlight_subnav('<?php echo U('index');?>');
+    $(function(){
+        //上传图片的js
+        //上传logo
+        $("#logo_input").fileupload({
+            url:"<?php echo U('Store/image_upload');?>",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".logoimg_div").empty();
+                $(".logoimg_div").append("<img src='/onethink"+src+"' style='width:100px;height:100px;'> ");
+                $("#logo_img").val(src);
+            }
+        });  
+        //上传背景图
+        $("#bg_input").fileupload({
+            url:"<?php echo U('Store/image_upload');?>",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".bgimg_div").empty();
+                $(".bgimg_div").append("<img src='/onethink"+src+"' style='width:100px;height:100px;'> ");
+                $("#bg_img").val(src);
+            }
+        });
+        //上传展示图
+        $("#showimg_input").fileupload({
+            url:"<?php echo U('Store/image_upload');?>",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".showimg_div").append("<img src='/onethink"+src+"' style='width:100px;height:100px;'> ");
+                $("#showimg_up").append("<input type='checkbox' name='showimg[]' value="+src+" checked/> ");
+            }
+        });       
+    });
+
+</script>
 
 </body>
 </html>

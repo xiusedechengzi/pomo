@@ -85,60 +85,106 @@
             
 
             
-<div class="tab-wrap">
-    <ul class="tab-nav nav">
-        <li><a href="<?php echo U('AuthManager/access',array('group_name'=>I('group_name') ,'group_id'=> I('group_id')));?>">访问授权</a></li>
-        <li><a href="<?php echo U('AuthManager/category',array('group_name'=>I('group_name') ,'group_id'=> I('group_id')));?>">分类授权</a></li>
-		<li class="current"><a href="javascript:;">成员授权</a></li>
-	    <li class="fr">
-		    <select name="group">
-			    <?php if(is_array($auth_group)): $i = 0; $__LIST__ = $auth_group;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo U('AuthManager/user',array('group_id'=>$vo['id'],'group_name'=>$vo['title']));?>" <?php if(($vo['id']) == $this_group['id']): ?>selected<?php endif; ?> ><?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-		    </select>
-	    </li>
-    </ul>
-    <!-- 数据列表 -->
-    <div class="data-table table-striped">
-	<table class="">
-    <thead>
-        <tr>
-		<th class="">UID</th>
-		<th class="">昵称</th>
-		<th class="">最后登录时间</th>
-		<th class="">最后登录IP</th>
-		<th class="">状态</th>
-		<th class="">操作</th>
-		</tr>
-    </thead>
-    <tbody>
-		<?php if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-			<td><?php echo ($vo["uid"]); ?> </td>
-			<td><?php echo ($vo["nickname"]); ?></td>
-			<td><span><?php echo (time_format($vo["last_login_time"])); ?></span></td>
-			<td><span><?php echo (long2ip($vo["last_login_ip"])); ?></span></td>
-			<td><?php echo ($vo["status_text"]); ?></td>
-			<td><a href="<?php echo U('AuthManager/removeFromGroup?uid='.$vo['uid'].'&group_id='.I('group_id'));?>" class="ajax-get">解除授权</a>
-
-                </td>
-		</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-	</tbody>
-    </table>
-
-
-    </div>
 	<div class="main-title">
-		<div class="page_nav fl">
-			<?php echo ($_page); ?>
-		</div>
-		<div id="add-to-group" class="tools fr">
-			<form class="add-user" action="<?php echo U('addToGroup');?>" method="post" enctype="application/x-www-form-urlencoded" >
-				<input class="text input-4x" type="text" name="uid" placeholder="请输入uid,多个用英文逗号分隔">
-				<input type="hidden" name="group_id" value="<?php echo I('group_id');?>">
-                <button type="submit" class="btn ajax-post" target-form="add-user">新 增</button>
-			</form>
+		<h2>卡券管理</h2>
+	</div>
+
+	<div class="cf">
+		<a class="btn" href="<?php echo U('edit');?>">新 增</a>
+		
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="keys" class="search-input" value="<?php echo I('keys');?>" placeholder="请输入卡券名称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="<?php echo U('index');?>"><i class="btn-search"></i></a>
+			</div>
 		</div>
 	</div>
 
-</div>
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>活动名称</th>
+					<!-- <th>活动照片</th> -->
+					<!-- <th>活动亮点</th> -->
+					<!-- <th>商铺code</th> -->
+					<th>商铺号</th>
+					<th>商品</th>
+					<th>业态</th>
+					<th>价格</th>
+					<th>发放日期</th>
+					<th>券数量</th>
+					<!-- <th>温馨提示</th> -->
+					<!-- <th>限制张数</th> -->
+					<!-- <th>满足金额</th> -->
+					<!-- <th>使用数量</th> -->
+					<th>生效日期</th>
+					<th>使用时间段</th>
+					<th>不可使用时间</th>
+					<!-- <th>其他</th> -->
+					<th>每天限制出售张数</th>
+					<th>每人最多购买数量</th>
+					<th>申请人id</th>
+					<th>申请时间</th>
+					<th>活动状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if(!empty($list)): if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><tr style="font-size:10px;">
+						<td><?php echo ($list["id"]); ?></td>
+						<td><?php echo ($list["title"]); ?></td>
+						<!-- <td><?php echo ($list["image"]); ?></td> -->
+						<!-- <td><?php echo ($list["highlight"]); ?></td> -->
+						<!-- <td><?php echo ($list["store_code"]); ?></td> -->
+						<td><?php echo ($list["store_id"]); ?></td>
+						<td><?php echo ($list["goods_code"]); ?></td>
+						<td><?php echo ($list["type"]); ?></td>
+						<td><?php echo ($list["discount_price"]); ?></td>
+						<td><?php echo ($list["grant_begin_time"]); ?>至<?php echo ($list["grant_end_time"]); ?></td>
+						<td><?php echo ($list["num"]); ?></td>
+						<!-- <td><?php echo ($list["tip"]); ?></td> -->
+						<!-- <td><?php echo ($list["limit_piece"]); ?></td> -->
+						<!-- <td><?php echo ($list["upper_price"]); ?></td> -->
+						<!-- <td><?php echo ($list["upper_piece"]); ?></td> -->
+						<td><?php echo ($list["effect_begin_time"]); ?>至<?php echo ($list["effect_end_time"]); ?></td>
+						<td><?php echo ($list["use_begin_time"]); ?>至<?php echo ($list["use_end_time"]); ?></td>
+						<td><?php echo ($list["useless_time"]); ?></td>
+						<!-- <td><?php echo ($list["other"]); ?></td> -->
+						<td><?php echo ($list["day_piece"]); ?></td>
+						<td><?php echo ($list["person_piece"]); ?></td>
+						<td><?php echo ($list["create_user"]); ?></td>
+						<td><?php echo ($list["create_time"]); ?></td>
+						
+
+
+						<td>
+
+							<?php if($list["status"] == 1): ?>已审核
+							<?php elseif($list["status"] == 0): ?> 
+								失效
+							<?php else: ?>
+								待审核<?php endif; ?>
+						</td>
+						<td>	
+							<a title="编辑" href="<?php echo U('edit?id='.$list['id']);?>" class="btn">编辑</a>
+							<a class="btn" title="删除" href="<?php echo U('del?id='.$list['id']);?>">删除</a>
+							<!-- <a title="特殊扣率" href="<?php echo U('special_deduction?id='.$list['id']);?>" class="btn">特殊扣率</a> -->
+						</td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php else: ?>
+				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+	       <!--分页-->
+        <div class="page">
+            <div>
+                <?php echo ($_page); ?>
+            </div>
+        </div>
 
         </div>
         <div class="cont-ft">
@@ -233,13 +279,32 @@
         }();
     </script>
     
-<script type="text/javascript" charset="utf-8">
-	$('select[name=group]').change(function(){
-		location.href = this.value;
+	<script src="/onethink/Public/static/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
 	});
     //导航高亮
-    highlight_subnav('<?php echo U('AuthManager/index');?>');
-</script>
+    highlight_subnav('<?php echo U('index');?>');
+	</script>
 
 </body>
 </html>

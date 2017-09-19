@@ -1,0 +1,109 @@
+<extend name="Public/base"/>
+
+<block name="style">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+</block>
+
+<block name="body">
+    <div class="main-title">
+        <h2>
+            {$list['id']?'编辑':'新增'}商户
+        </h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">购物中心名称：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="{$list.name|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">选择城市</label>
+            <select name="city_id" id="city">
+                <option value="" >请选择</option>
+                <foreach name='city' item='v'>
+                    <option value="{$v['id']}" <eq name="list.city_id" value="$v[id]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">地址：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="address" value="{$list.address|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">经度：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="longitude" value="{$list.longitude|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">纬度：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="latitude" value="{$list.latitude|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">标志：</label>
+
+            <div class="controls">
+                <input type="file" id="uploadPic">
+                <input type="hidden" name="image" id="image" value="{$list.image|default=''}"/>
+                <div class="upload-img-box">
+                    <notempty name="list.image">
+                        <div class="upload-pre-item"><img src="__ROOT__{$list.image}"/></div>
+                    </notempty>
+                </div>
+                <script type="text/javascript">
+                    // $("#uploadPic").uploadify({
+                    //     "height"          : 30,
+                    //     "swf"             : "__STATIC__/uploadify/uploadify.swf",
+                    //     "fileObjName"     : "download",
+                    //     "buttonText"      : "上传图片",
+                    //     "uploader"        : "{:U('Mall/image_upload')}",
+                    //     "width"           : 120,
+                    //     'removeTimeout'    : 1,
+                    //     'fileTypeExts'     : '*.jpg; *.png; *.jpeg;',
+                    //     "onUploadSuccess" : uploadPic,
+                    //     'onFallback' : function() {
+                    //         alert('未检测到兼容版本的Flash.');
+                    //     }
+                    // });
+                    // function uploadPic(file, data){
+                    //     console.log(data);
+                    //     var dataNew = JSON.parse($.trim(data));
+                    //     var src = '';
+                    //     if(dataNew.status){
+                    //         src = dataNew.url || '__ROOT__' + dataNew.data.image;
+                    //         console.log(src);
+                    //         $('#image').val(dataNew.data.image);
+                    //         $("#image").parent().find('.upload-img-box').html(
+                    //                         '<div class="upload-pre-item"><img src="' + src + '"/></div>'
+                    //         );
+                    //     } else {
+                    //         var that;
+                    //         updateAlert(dataNew.info);
+                    //         setTimeout(function(){
+                    //             $('#top-alert').find('button').click();
+                    //             $(that).removeClass('disabled').prop('disabled',false);
+                    //         },1500);
+                    //     }
+                    // }
+                </script>
+            </div>
+
+        </div>
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$list.id|default=''}">
+            <button class="btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+<block name="script">
+<script type="text/javascript" charset="utf-8">
+    //导航高亮
+    highlight_subnav('{:U('index')}');
+</script>
+</block>

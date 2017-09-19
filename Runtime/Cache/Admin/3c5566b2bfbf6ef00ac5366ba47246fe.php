@@ -5,6 +5,7 @@
         <title>欢迎您登录OneThink</title>
         <link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/login.css" media="all">
        	<link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css" media="all">
+        <script type="text/javascript" src="__JSS__/jquery-3.2.1.min.js"></script>
     </head>
     <body id="login-page">
         <div id="main-content">

@@ -1,0 +1,92 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>用户行为报表管理</h2>
+	</div>
+
+	<div class="cf">
+		<a class="btn" href="{:U('edit')}">新 增</a>
+		
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="keys" class="search-input" value="{:I('keys')}" placeholder="请输入购物中心名称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>昵称</th>
+					<th>电话</th>
+					<th>关联微信</th>
+					<th>最后登录时间</th>
+					<th>累计购买卡卷数</th>
+					<th>累计消费金额</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="list">
+				<volist name="list" id="list">
+					<tr>
+						<td>{$list.id}</td>
+						<td>{$list.nickname}</a></td>
+						<td>{$list.mobile}</a></td>
+						<td>{$list.clientid}</td>
+						<td>{$list.lasttime}</td>
+						<td>{$list.cardnum}</td>
+						<td>{$list.consume}</td>
+						
+						<td>
+							<a title="编辑" href="{:U('edit?id='.$list['id'])}" class="btn">编辑</a>
+							<a class="btn" title="删除" href="{:U('del?id='.$list['id'])}">删除</a>
+						</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+	</div>
+	       <!--分页-->
+        <div class="page">
+            <div>
+                {$_page}
+            </div>
+        </div>
+</block>
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('index')}');
+	</script>
+</block>

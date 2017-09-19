@@ -1,0 +1,138 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>卡券管理</h2>
+	</div>
+
+	<div class="cf">
+		<a class="btn" href="{:U('edit')}">新 增</a>
+		
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="keys" class="search-input" value="{:I('keys')}" placeholder="请输入卡券名称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>活动名称</th>
+					<!-- <th>活动照片</th> -->
+					<!-- <th>活动亮点</th> -->
+					<!-- <th>商铺code</th> -->
+					<th>商铺号</th>
+					<th>商品</th>
+					<th>业态</th>
+					<th>价格</th>
+					<th>发放日期</th>
+					<th>券数量</th>
+					<!-- <th>温馨提示</th> -->
+					<!-- <th>限制张数</th> -->
+					<!-- <th>满足金额</th> -->
+					<!-- <th>使用数量</th> -->
+					<th>生效日期</th>
+					<th>使用时间段</th>
+					<th>不可使用时间</th>
+					<!-- <th>其他</th> -->
+					<th>每天限制出售张数</th>
+					<th>每人最多购买数量</th>
+					<th>申请人id</th>
+					<th>申请时间</th>
+					<th>活动状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="list">
+				<volist name="list" id="list">
+					<tr style="font-size:10px;">
+						<td>{$list.id}</td>
+						<td>{$list.title}</td>
+						<!-- <td>{$list.image}</td> -->
+						<!-- <td>{$list.highlight}</td> -->
+						<!-- <td>{$list.store_code}</td> -->
+						<td>{$list.store_id}</td>
+						<td>{$list.goods_code}</td>
+						<td>{$list.type}</td>
+						<td>{$list.discount_price}</td>
+						<td>{$list.grant_begin_time}至{$list.grant_end_time}</td>
+						<td>{$list.num}</td>
+						<!-- <td>{$list.tip}</td> -->
+						<!-- <td>{$list.limit_piece}</td> -->
+						<!-- <td>{$list.upper_price}</td> -->
+						<!-- <td>{$list.upper_piece}</td> -->
+						<td>{$list.effect_begin_time}至{$list.effect_end_time}</td>
+						<td>{$list.use_begin_time}至{$list.use_end_time}</td>
+						<td>{$list.useless_time}</td>
+						<!-- <td>{$list.other}</td> -->
+						<td>{$list.day_piece}</td>
+						<td>{$list.person_piece}</td>
+						<td>{$list.create_user}</td>
+						<td>{$list.create_time}</td>
+						
+
+
+						<td>
+
+							<if condition="$list.status eq 1">
+								已审核
+							<elseif  condition="$list.status eq 0"/> 
+								失效
+							<else />
+								待审核
+							</if>
+						</td>
+						<td>	
+							<a title="编辑" href="{:U('edit?id='.$list['id'])}" class="btn">编辑</a>
+							<a class="btn" title="删除" href="{:U('del?id='.$list['id'])}">删除</a>
+							<!-- <a title="特殊扣率" href="{:U('special_deduction?id='.$list['id'])}" class="btn">特殊扣率</a> -->
+						</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+	</div>
+	       <!--分页-->
+        <div class="page">
+            <div>
+                {$_page}
+            </div>
+        </div>
+</block>
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('index')}');
+	</script>
+</block>

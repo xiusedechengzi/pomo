@@ -1,0 +1,120 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>签约管理</h2>
+	</div>
+
+	<div class="cf">
+		<a class="btn" href="{:U('edit')}">新 增</a>
+		
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+                <!-- <span style="background:#eee">选择:</span> -->
+                <select name="mall" id="mall">
+                    <option value="" >请选择购物中心</option>
+                    <foreach name='mall' item='v'>
+                        <option value="{$v['id']}" <eq name="Think.GET.mall_id" value="$v[id]">selected</eq> >{$v.name}</option>
+                    </foreach>
+                </select>
+            </div>
+			<div class="sleft">
+				<input type="text" name="keys" class="search-input" value="{:I('keys')}" placeholder="请输入店铺名称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('index')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>店铺名</th>
+					<th>店铺id</th>
+					<th>合同生效日期</th>
+					<th>合同终止日期</th>
+					<th>费用结算起始日期</th>
+					<th>扣率</th>
+					<th>结算周期</th>
+					<th>结算银行</th>
+					<th>银行账号</th>
+					<th>保证金</th>
+					<th>是否缴纳保证金</th>
+					<th>发票抬头</th>
+					<th>添加时间</th>
+					<th>添加人员id</th>
+					<th>是否失效</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="list">
+				<volist name="list" id="list">
+					<tr>
+						<td>{$list.id}</td>
+						<td>{$list.store_name}</a></td>
+						<td>{$list.store_id}</a></td>
+						<td>{$list.effective_time}</td>
+						<td>{$list.end_time}</td>
+						<td>{$list.payend_time}</td>
+						<td>{$list.deduction}</a></td>
+						<td>{$list.pay_period}</a></td>
+						<td>{$list.pay_bank}</td>
+						<td>{$list.bank_account}</td>
+						<td>{$list.deposit}</td>
+						<td>{$list.had_deposit}</a></td>
+						<td>{$list.bill_title}</a></td>
+						<td>{$list.addtime}</td>
+						<td>{$list.add_member_id}</td>
+						<td>{$list.status}</td>
+						<td>
+							<a title="编辑" href="{:U('edit?id='.$list['id'])}" class="btn">编辑</a>
+							<a class="btn" title="删除" href="{:U('del?id='.$list['id'])}">删除</a>
+							<!-- <a class="btn" title="合同" href="{:U('contract?id='.$list['id'])}">合同管理</a>
+							<a class="btn" title="合同" href="{:U('accountList?id='.$list['id'])}">财务对账</a> -->
+						</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+	</div>
+	       <!--分页-->
+        <div class="page">
+            <div>
+                {$_page}
+            </div>
+        </div>
+</block>
+<block name="script">
+	<script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('{:U('index')}');
+	</script>
+</block>

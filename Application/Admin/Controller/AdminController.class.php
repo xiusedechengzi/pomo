@@ -172,7 +172,7 @@ class AdminController extends Controller {
      */
     protected function resume (  $model , $where = array() , $msg = array( 'success'=>'状态恢复成功！', 'error'=>'状态恢复失败！')){
         $data    =  array('status' => 1);
-        $this->editRow(   $model , $data, $where, $msg);
+        $this->editRow($model , $data, $where, $msg);
     }
 
     /**

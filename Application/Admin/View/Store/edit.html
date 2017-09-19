@@ -1,0 +1,175 @@
+<extend name="Public/base"/>
+
+<block name="style">
+    <!--图片上传的js-->
+    <script src="__STATIC__/upimg/jquery.ui.widget.js"></script>
+    <script src="__STATIC__/upimg/jquery.iframe-transport.js"></script>
+    <script src="__STATIC__/upimg/jquery.fileupload.js"></script>
+</block>
+
+<block name="body">
+	<div class="main-title">
+		<h2>
+			{$list['id']?'编辑':'新增'}店铺
+		</h2>
+	</div>
+	<form action="{:U()}" method="post" class="form-horizontal">
+		<div class="form-item">
+			<label class="item-label">店铺名称：</label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="name" value="{$list.name|default=''}">
+			</div>
+		</div>
+        <div class="form-item">
+            <label class="item-label">店铺号：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_code" value="{$list.store_code|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">店铺地址：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_address" value="{$list.store_address|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">联系方式：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">选择购物中心</label>
+            <select name="mall_id" id="mall">
+                <option value="" >请选择</option>
+                <foreach name='mall' item='v'>
+                    <option value="{$v['id']}" <eq name="list.mall_id" value="$v[id]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        <!--上传logo-->
+		<div class="form-item">
+            <label class="item-label">标志：</label><img src="__ROOT__{$list.logo}" width="40px" height="40px"/>
+            <label class="item-label">添加附件：</label><a href="javascript:;" class="text_c uploadFile"><input type="file" name="files" id="logo_input" /></a>
+
+            <input type="text" class="text input-large" id="logo_img" name="logo_img" style="display:none;">
+        </div>
+        <div class="form-item" style="min-height:150px;">
+            <div class="fl logoimg_div">
+            </div>
+        </div>
+        <!--end-->   
+        <!--上传背景图-->
+        <div class="form-item">
+            <label class="item-label">背景图：</label>
+            <label class="item-label">添加附件：</label><a href="javascript:;" class="text_c uploadFile"><input type="file" name="files" id="bg_input" /></a>
+
+            <input type="text" class="text input-large" id="bg_img" name="bg_img" style="display:none;">
+        </div>
+        <div class="form-item" style="min-height:150px;">
+            <div class="fl bgimg_div">
+            </div>
+        </div>
+        <!--end-->   
+        <!--上传展示图-->
+        <div class="form-item">
+            <label class="item-label">展示图：</label>
+            <label class="item-label">添加附件：</label><a href="javascript:;" class="text_c uploadFile"><input type="file" name="files" id="showimg_input" /></a>
+
+        </div>
+        <div class="form-item" style="display:none;" id="showimg_up">
+        </div>        
+        <div class="form-item" style="min-height:150px;">
+            <div class="fl showimg_div">
+            </div>
+        </div>
+        <!--end-->    
+        <div class="form-item">
+            <label class="item-label">适合性别</label>
+            <input type="checkbox" name="sex[]" id="sex[]" value="1" <?php if(in_array('1',$sex)) echo("checked");?>/>男
+            <input type="checkbox" name="sex[]" id="sex[]" value="2" <?php if(in_array('2',$sex)) echo("checked");?>/>女
+        </div>
+        <div class="form-item" style="display:none;">
+            <label class="item-label" >测试</label>
+            <input type="checkbox" name="img[]" id="img[]" value="lina" checked/>
+            <input type="checkbox" name="img[]" id="img[]" value="," checked/>
+            <input type="checkbox" name="img[]" id="img[]" value="yukari" checked/>
+        </div>
+        <div class="form-item">
+            <label class="item-label">适合年龄段</label>
+            <input type="checkbox" name="age[]" id="age[]" value="70" <?php if(in_array('70',$age)) echo("checked");?>/>70
+            <input type="checkbox" name="age[]" id="age[]" value="80" <?php if(in_array('80',$age)) echo("checked");?>/>80
+            <input type="checkbox" name="age[]" id="age[]" value="90" <?php if(in_array('90',$age)) echo("checked");?>/>90
+            <input type="checkbox" name="age[]" id="age[]" value="00" <?php if(in_array('00',$age)) echo("checked");?>/>00
+        </div>
+        <div class="form-item">
+            <label class="item-label">适合婚否</label>
+            <input type="checkbox" name="is_married[]" id="is_married[]" value="1" <?php if(in_array('1',$is_married)) echo("checked");?>/>未婚
+            <input type="checkbox" name="is_married[]" id="is_married[]" value="2" <?php if(in_array('2',$is_married)) echo("checked");?>/>已婚
+        </div>
+        <div class="form-item">
+            <label class="item-label">适合有无子女</label>
+            <input type="checkbox" name="is_havechildren[]" id="is_havechildren[]" value="1" <?php if(in_array('1',$is_havechildren)) echo("checked");?>/>无子女
+            <input type="checkbox" name="is_havechildren[]" id="is_havechildren[]" value="2" <?php if(in_array('2',$is_havechildren)) echo("checked");?>/>有子女
+        </div>
+        <div class="form-item">
+            <label class="item-label">适合子女情况</label>
+            <input type="checkbox" name="child_condition[]" id="child_condition[]" value="1" <?php if(in_array('1',$child_condition)) echo("checked");?>/>婴儿
+            <input type="checkbox" name="child_condition[]" id="child_condition[]" value="2" <?php if(in_array('2',$child_condition)) echo("checked");?>/>幼儿
+            <input type="checkbox" name="child_condition[]" id="child_condition[]" value="3" <?php if(in_array('3',$child_condition)) echo("checked");?>/>青少年
+        </div>
+        <div class="form-item">
+            <label class="item-label">适合消费力</label>
+            <input type="checkbox" name="cos_level[]" id="cos_level[]" value="1" <?php if(in_array('1',$cos_level)) echo("checked");?>/>低
+            <input type="checkbox" name="cos_level[]" id="cos_level[]" value="2" <?php if(in_array('2',$cos_level)) echo("checked");?>/>中
+            <input type="checkbox" name="cos_level[]" id="cos_level[]" value="3" <?php if(in_array('3',$cos_level)) echo("checked");?>/>高
+        </div>
+        <div class="form-item">
+			<input type="hidden" name="id" value="{$list.id|default=''}">
+			<button class="btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+</block>
+<block name="script">
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+	highlight_subnav('{:U('index')}');
+    $(function(){
+        //上传图片的js
+        //上传logo
+        $("#logo_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".logoimg_div").empty();
+                $(".logoimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#logo_img").val(src);
+            }
+        });  
+        //上传背景图
+        $("#bg_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".bgimg_div").empty();
+                $(".bgimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#bg_img").val(src);
+            }
+        });
+        //上传展示图
+        $("#showimg_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".showimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#showimg_up").append("<input type='checkbox' name='showimg[]' value="+src+" checked/> ");
+            }
+        });       
+    });
+
+</script>
+</block>

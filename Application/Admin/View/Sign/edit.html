@@ -1,0 +1,158 @@
+<extend name="Public/base"/>
+
+<block name="style">
+    <!--图片上传的js-->
+    <script src="__STATIC__/upimg/jquery.ui.widget.js"></script>
+    <script src="__STATIC__/upimg/jquery.iframe-transport.js"></script>
+    <script src="__STATIC__/upimg/jquery.fileupload.js"></script>
+</block>
+
+<block name="body">
+	<div class="main-title">
+		<h2>
+			{$list['id']?'编辑':'新增'}签约
+		</h2>
+	</div>
+	<form action="{:U()}" method="post" class="form-horizontal">
+		<div class="form-item">
+			<label class="item-label">店铺名称：</label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="name" value="{$list.name|default=''}">
+			</div>
+		</div>
+        <div class="form-item">
+            <label class="item-label">店铺id：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_code" value="{$list.store_code|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">合同生效日期：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="store_address" value="{$list.store_address|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">合同终止日期：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">费用结算起始日期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">扣率</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">结算周期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">结算银行</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">银行账号</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">保证金</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否缴纳保证金</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">发票抬头</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">添加日期</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">添加人员id</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否失效</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="phone" value="{$list.phone|default=''}">
+            </div>
+        </div>
+        
+       
+       
+        <div class="form-item">
+			<input type="hidden" name="id" value="{$list.id|default=''}">
+			<button class="btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+</block>
+<block name="script">
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+	highlight_subnav('{:U('index')}');
+    $(function(){
+        //上传图片的js
+        //上传logo
+        $("#logo_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".logoimg_div").empty();
+                $(".logoimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#logo_img").val(src);
+            }
+        });  
+        //上传背景图
+        $("#bg_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".bgimg_div").empty();
+                $(".bgimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#bg_img").val(src);
+            }
+        });
+        //上传展示图
+        $("#showimg_input").fileupload({
+            url:"{:U('Store/image_upload')}",//文件上传地址，当然也可以直接写在input的data-url属性内
+            formData:{},//如果需要额外添加参数可以在这里添加
+            done:function(e,result){
+                var src = result.result.data.image;
+                $(".showimg_div").append("<img src='__ROOT__"+src+"' style='width:100px;height:100px;'> ");
+                $("#showimg_up").append("<input type='checkbox' name='showimg[]' value="+src+" checked/> ");
+            }
+        });       
+    });
+
+</script>
+</block>

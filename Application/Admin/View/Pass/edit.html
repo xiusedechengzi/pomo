@@ -1,0 +1,319 @@
+
+<extend name="Public/base"/>
+
+<block name="style">
+    <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+</block>
+
+<block name="body">
+	<div class="main-title">
+		<h2>
+			{$list['id']?'编辑':'新增'}卡券
+		</h2>
+	</div>
+	<form action="{:U()}" method="post" class="form-horizontal">
+		<div class="form-item">
+			<label class="item-label">活动名称：</label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="name" value="{$list.name|default=''}">
+			</div>
+		</div>
+        <div class="form-item">
+            <label class="item-label">业态：</label>
+            <select name="format" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='format' item='v'>
+                    <option value="{$v['id']}" <eq name="list.format" value="$v[id]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">颜色：</label>
+            <!-- <select name="color" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='color' item='v'>
+                    <option style="background:rgb(1,118,81)" value="{$v['name']}" <eq name="list.color" value="$v[name]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select> -->
+            <style>
+                .form-item .item{
+                    width: 8%;
+                    display: inline-block;
+                    margin-left: 2%;
+                }
+                .form-item .item>label{
+                    display: inline-block;
+                    width: 50%;
+                    height: 20px;
+                }
+            </style>
+            <div class="colorList">
+                <volist name="color" id="v">
+                    <span class="item">
+                        <input type="radio" name="color" id="{$v['name']}" value="{$v['name']}" <eq name="list.color" value="$v[name]">checked</eq> />
+                        <label for="{$v['name']}" style="background:{$v['name']};"></label>{$v['name']}
+                    </span>
+                </volist>
+            </div>
+           <!--  <div class="selectContainer">
+                <div class="container">#196521</div>
+                <ul class="select">
+                    <li style="background-color: #196521">#196521</li>
+                    <li style="background-color: #230191">#196522</li>
+                    <li style="background-color: #286590">#196523</li>
+                    <li style="background-color: #987521">#196524</li>
+                    <li style="background-color: #196521">#196525</li>
+                    <li style="background-color: #230191">#196526</li>
+                    <li style="background-color: #286590">#196527</li>
+                    <li style="background-color: #987521">#196528</li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="form-item">
+            <label class="item-label">购物中心：</label>
+            <select name="mall_id" id="mall" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='mall' item='v'>
+                    <option value="{$v['id']}" <eq name="list.mall_id" value="$v[id]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">所属店铺：</label>
+            <select name="store_id" id="store" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='store' item='v'>
+                    <option value="{$v['id']}" <eq name="list.store_id" value="$v[id]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select>
+        </div>
+        
+        <div class="form-item">
+            <label class="item-label">活动类型</label>
+            <select class="select_type" name="type" id="select_type" onchange="showtype(this)" style="width:200px">
+                <option value="{$list.type|default=''}">- 请选择 -</option>
+                <if condition="$list.type eq '1'"><option value="1" selected="true">现金抵扣券</option>
+                    <else /><option value="1">现金抵扣券</option>
+                </if>
+                <if condition="$list.type eq '2'"><option value="2" selected="true">收费门票</option>
+                    <else /><option value="2">收费门票</option>
+                </if>
+                <if condition="$list.type eq '3'"><option value="3" selected="true">免费体验券</option>
+                    <else /><option value="3">免费体验券</option>
+                </if>
+            </select>
+        </div>
+        <div class="form-item">
+            <label class="item-label">所属场景：</label>
+            <!-- <select name="scene" id="scene" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='scene' item='v'>
+                    <option value="{$v['name']}" <eq name="list.scene" value="$v[name]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select> -->
+            <foreach name='scene' item='v'>
+                <input type="checkbox" name="scene[]" id="scene[]" value="{$v[id]}" <?php if(in_array($v[id],explode(',',$list[scene]))) echo("checked");?>/>{$v[name]}
+                <!-- <option value="{$v['id']}" <eq name="list.mall_id" value="$v[id]">selected</eq> >{$v.name}</option> -->
+            </foreach>
+        </div>
+        <div class="form-item">
+            <label class="item-label">所属类别：</label>
+            <!-- <select name="category" id="category" style="width:200px">
+                <option value="" >请选择</option>
+                <foreach name='category' item='v'>
+                    <option value="{$v['name']}" <eq name="list.category" value="$v[name]">selected</eq> >{$v.name}</option>
+                </foreach>
+            </select> -->
+            <foreach name='category' item='v'>
+                <input type="checkbox" name="category[]" id="category[]" value="{$v[id]}" <?php if(in_array($v[id],explode(',',$list[category]))) echo("checked");?>/>{$v[name]}
+                <!-- <option value="{$v['id']}" <eq name="list.mall_id" value="$v[id]">selected</eq> >{$v.name}</option> -->
+            </foreach>
+        </div>
+        <div class="form-item">
+            <label class="item-label">私人订制</label>
+            <input type="checkbox" name="personal" id="personal" value="1" <?php if($list['personal']) echo("checked");?>/>订制
+        </div>
+        <div class="form-item">
+            <label class="item-label">是否精选</label>
+            <input type="checkbox" name="sift" id="sift" value="1" <?php if($list['sift']) echo("checked");?>/>精选
+        </div>
+        <div class="form-item" id="manjian" >
+            <label class="item-label">满减金额</label>
+            <div class="controls">
+                <p>满&nbsp;<input type="text" class="text input-small" name="price_man" value="{$list.price_man|default=''}"></p>                
+                <p>减&nbsp;<input type="text" class="text input-small" name="price_jian" value="{$list.price_jian|default=''}"></p>              
+            </div>
+        </div>
+		<div class="form-item">
+            <label class="item-label">描述：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="desc" value="{$list.desc|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">原价：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="cost_price" value="{$list.cost_price|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">售价：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="sell_price" value="{$list.sell_price|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">销售截止日期：</label>
+            <div class="controls">
+                <input type="date" class="text input-large" name="sell_time" value="{$list.sell_time|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">亮点：</label>
+            <div class="textarea input-large">
+                <textarea name="edge">{$list.edge|default=''}</textarea>
+                <!-- <input type="text" class="text input-large" name="tips" value="{$list.tips|default=''}"> -->
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">检索关键词：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="search_keys" value="{$list.search_keys|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">有效期开始时间：</label>
+            <div class="controls">
+                <input type="date" class="text input-large" name="valid_start_time" value="{$list.valid_start_time|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">有效期结束时间：</label>
+            <div class="controls">
+                <input type="date" class="text input-large" name="valid_end_time" value="{$list.valid_end_time|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">卡券发行总数量：</label>
+            <p style="color:red;">发行总数量不得低于当前冻结数量与已销售数量的总和：<?php echo(intval($list['all_num']) - intval($list['now_num']) );?></p>
+            <div class="controls">
+                <input type="text" class="text input-large" name="all_num" value="{$list.all_num|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">每人领取数量限制：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="limit_num" value="{$list.limit_num|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">不可用日期：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="unable_date" value="{$list.unable_date|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">可用时间段：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="able_time" value="{$list.able_time|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">使用条件：</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="requirement" value="{$list.requirement|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">温馨提示：</label>
+            <div class="textarea input-large">
+                <textarea name="tips">{$list.tips|default=''}</textarea>
+                <!-- <input type="text" class="text input-large" name="tips" value="{$list.tips|default=''}"> -->
+            </div>
+        </div>
+        <div class="form-item">
+			<input type="hidden" name="id" value="{$list.id|default=''}">
+			<button class="btn" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
+</block>
+<block name="script">
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+	highlight_subnav('{:U('index')}');
+
+    function showtype(obj) {
+        $('input[name="price_man"]').attr('disabled',true);
+        $('input[name="price_jian"]').attr('disabled',true);
+        var s_type = $(obj).val(); 
+        switch(s_type)
+        {
+        case '0':
+            break;
+        case '1': 
+            $('#manjian').css('display','block');
+            $('input[name="price_man"]').attr('disabled',false);
+            $('input[name="price_jian"]').attr('disabled',false);
+            break;
+        case '2':
+            $('#manjian').css('display','none');
+            break;
+        case '3': 
+            $('#manjian').css('display','none');
+            break;
+        }
+    }
+
+    
+</script>
+<script type="text/javascript">
+    $(function(){
+        /*二级联动*/
+        $('#mall').change(function() {
+            var objectModel = {};
+            var site_id = $(this).val();
+            var type = $(this).attr('id');
+            objectModel[type] =site_id;
+            console.log(objectModel); 
+            $.ajax({
+                cache:false,
+                type:"POST",
+                url:"{:U('Pass/selectStore')}",
+                dataType:"json",
+                data:objectModel,
+                // timeout:30000,
+                error:function() {
+                    alert('ajax请求失败');
+                },
+                success:function(data){
+                    console.log(data);
+                    $("#store").empty();
+                    var count = data.length;
+                    var i = 0;
+                    var b="<option value=''>选择店铺</option>";
+                    for(i=0;i<count;i++) {
+                        b+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                    }
+                    $("#store").append(b);
+                }
+            });
+            $.ajax({
+                cache:false,
+                type:"POST",
+                url:"{:U('Pass/selectPackage')}",
+                dataType:"json",
+                data:objectModel,
+                // timeout:30000,
+                error:function() {
+                    alert('ajax请求失败');
+                },
+                success:function(data){
+                    console.log(data);
+                    
+                }
+            });
+        });
+    })
+</script>
+</block>

@@ -47,7 +47,7 @@ class UserController extends AdminController {
      * 用户管理首页1
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
-    public function index1(){
+    public function fuser(){
         $nickname       =   I('nickname');
         $map['status']  =   array('egt',0);
         if(is_numeric($nickname)){
@@ -56,12 +56,12 @@ class UserController extends AdminController {
             $map['nickname']    =   array('like', '%'.(string)$nickname.'%');
         }
 
-        $list   = $this->lists('Member', $map);
+        $list   = $this->lists('frontuser', $map);
 
-        var_dump($list);
+        // var_dump($list);
         int_to_string($list);
         $this->assign('_list', $list);
-        $this->meta_title = '用户信息';
+        $this->meta_title = '顾客管理';
         $this->display();
     }
 
@@ -230,6 +230,40 @@ class UserController extends AdminController {
         }
     }
 
+
+    /**
+     * 顾客状态修改
+     * @author 朱亚杰 <zhuyajie@topthink.net>
+     */
+    public function changeFuserStatus($method=null){
+        $id = array_unique((array)I('id',0));
+        if( in_array(C('USER_ADMINISTRATOR'), $id)){
+            $this->error("不允许对超级管理员执行该操作!");
+        }
+        $id = is_array($id) ? implode(',',$id) : $id;
+        if ( empty($id) ) {
+            $this->error('请选择要操作的数据!');
+        }
+        $map['id'] =   array('in',$id);
+        switch ( strtolower($method) ){
+            case 'forbiduser':
+                $this->forbid('Frontuser', $map );
+                break;
+            case 'resumeuser':
+                $this->resume('Frontuser', $map );
+                break;
+            case 'deleteuser':
+                $this->delete('Frontuser', $map );
+                break;
+            default:
+                $this->error('参数非法');
+        }
+    }
+
+    /**
+    *添加后台用户
+    *
+    */
     public function add($username = '', $password = '', $repassword = '', $email = '',$mobile = '',$store_code = '',$nickname = ''){
         // var_dump($_POST);
         // die();
@@ -259,6 +293,59 @@ class UserController extends AdminController {
             $this->display();
         }
     }
+
+    // public function af(){
+    //     echo
+
+    // }
+
+
+
+    /**
+    * 添加顾客用户
+    * @author chenlei
+    */
+    public function addf(){
+        // echo IS_POST;
+        // die();
+        // $mobile = $_POST['$mobile'];
+        if(IS_POST){
+
+            $data = $_POST;
+            var_dump($data);
+
+            $ad = M('frontuser');
+            $res = $ad->add($data);
+            if($res){
+                if(empty($data['id'])){
+                    $this->success('添加成功');
+                }else{
+                    $this->success('编辑成功');
+                }
+            }else{
+                $error = $ad->getError();
+                if(empty($data['id'])){
+                    $this->error(empty($error) ? '添加失败！' : $error);
+                }else{
+                    $this->error(empty($error) ? '修改失败！' : $error);
+                }   
+            }
+        } else {
+
+            $id = I('id');
+            $ad = M('frontuser')->where('id='.$id)->find();
+            // $mall = M('mall')->field('id,name')->select();
+            // $this->assign('mall',$mall);
+            // var_dump($ad);
+            $this->assign('list',$ad);
+            // $this->display();
+
+            $this->meta_title = '新增顾客';
+            $this->display();
+        }
+    }
+
+
 
     /**
      * 获取用户注册错误信息

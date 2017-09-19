@@ -1,0 +1,371 @@
+[ 2017-09-19T09:59:17+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T09:59:26+08:00 ] ::1 /onethink/index.php?s=/admin/sign/1231.html
+ERR: 非法操作:1231
+
+[ 2017-09-19T10:07:06+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:07:11+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:07:43+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:22:29+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:33:26+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:33:26+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:33:58+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:33:58+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T10:53:31+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id= ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T10:53:36+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit/id/1.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id=1 ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T11:04:29+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id= ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T11:05:12+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T11:05:14+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id= ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T11:05:36+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit/id/1.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id=1 ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T11:07:55+08:00 ] ::1 /onethink/index.php?s=/admin/merchant/edit.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_store` WHERE ( id= ) LIMIT 1  
+
+[ 2017-09-19T11:08:02+08:00 ] ::1 /onethink/index.php?s=/admin/merchant/edit.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_store` WHERE ( id= ) LIMIT 1  
+
+[ 2017-09-19T11:32:42+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id= ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T11:32:44+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit/id/1.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id=1 ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T13:32:03+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit/id/1.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id=1 ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T13:32:28+08:00 ] ::1 /onethink/index.php?s=/admin/pass/edit.html
+ERR: 1146:Table 'test.onethink_pass' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_pass` WHERE ( id= ) LIMIT 1  
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_format`
+ERR: 1146:Table 'test.onethink_format' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_format` 
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_color`
+ERR: 1146:Table 'test.onethink_color' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_color` 
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_user_package`
+ERR: 1146:Table 'test.onethink_user_package' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`desc` FROM `onethink_user_package` WHERE ( uid=0 ) 
+ERR: 1054:Unknown column 'name' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_scene` 
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_pass_category`
+ERR: 1146:Table 'test.onethink_pass_category' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`name` FROM `onethink_pass_category` 
+
+[ 2017-09-19T13:32:50+08:00 ] ::1 /onethink/index.php?s=/admin/uuu/fd.html
+ERR: 无法加载控制器:Uuu
+
+[ 2017-09-19T13:32:55+08:00 ] ::1 /onethink/index.php?s=/admin/pass/12321.html
+ERR: 非法操作:12321
+
+[ 2017-09-19T14:09:43+08:00 ] ::1 /onethink/index.php?s=/admin/user/addf.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_frontuser` WHERE ( id= ) LIMIT 1  
+
+[ 2017-09-19T14:10:08+08:00 ] ::1 /onethink/index.php?s=/admin/user/addf.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_frontuser` WHERE ( id= ) LIMIT 1  
+
+[ 2017-09-19T14:33:09+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T14:35:01+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T14:35:03+08:00 ] ::1 /onethink/index.php?s=/admin/statement/userinfo.html
+ERR: 无法加载控制器:Statement
+
+[ 2017-09-19T15:00:27+08:00 ] ::1 /onethink/index.php?s=/admin/statement/edit.html
+ERR: 1146:Table 'test.onethink_ad' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_ad`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_ad` WHERE ( id= ) LIMIT 1  
+ERR: 模板不存在:./Application/Admin/View/Statement/edit.html
+
+[ 2017-09-19T15:01:35+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T15:02:18+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T15:27:09+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T15:28:52+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T15:45:48+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:27:17+08:00 ] ::1 /onethink/index.php?s=/admin/statement/edit/id/1.html
+ERR: 1146:Table 'test.onethink_ad' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_ad`
+ERR: 1146:Table 'test.onethink_ad' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_ad` WHERE ( id=1 ) LIMIT 1  
+ERR: 模板不存在:./Application/Admin/View/Statement/edit.html
+
+[ 2017-09-19T16:27:19+08:00 ] ::1 /onethink/index.php?s=/admin/statement/edit.html
+ERR: 1146:Table 'test.onethink_ad' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_ad`
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `onethink_ad` WHERE ( id= ) LIMIT 1  
+ERR: 模板不存在:./Application/Admin/View/Statement/edit.html
+
+[ 2017-09-19T16:30:46+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:33:17+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:36:05+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:36:52+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:37:43+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:37:43+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:38:49+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
+[ 2017-09-19T16:56:51+08:00 ] ::1 /onethink/index.php?s=/admin/statement/index.html&
+ERR: 非法操作:index
+
+[ 2017-09-19T16:57:54+08:00 ] ::1 /onethink/index.php?s=/admin/uuu/fd.html
+ERR: 无法加载控制器:Uuu
+
+[ 2017-09-19T16:58:00+08:00 ] ::1 /onethink/index.php?s=/admin/pomo/index.html
+ERR: 1054:Unknown column 'addtime' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`city_id`,`name`,`image`,`addtime`,`longitude`,`latitude` FROM `onethink_mall` WHERE ( `name` LIKE '%%' ) LIMIT 0,10  
+
